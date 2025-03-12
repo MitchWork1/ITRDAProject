@@ -287,10 +287,10 @@ server <- function(input, output) {
   })
   
   output$platformsPlot <- renderPlot({
-    plot_gg(top_platforms()[[1]], top_platforms()[[1]]$Platform, "Platforms",
-            "Frequency Of Usage",
+    plot_gg(top_platforms()[[1]], top_platforms()[[1]]$Platform,
+            "Cloud Platforms", "Frequency Of Usage",
             paste("Top", min(top_platforms()[[3]], input$numPlatform),
-                  "Platforms Used By Graduates"), 100, top_platforms()[[2]],
+                  "Cloud Platforms Used By Graduates"), 100, top_platforms()[[2]],
             top_platforms()[[3]], input$axisSize, input$legendSize,
             input$percentageSize, input$roundNum)
   })
