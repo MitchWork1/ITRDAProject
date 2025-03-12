@@ -297,11 +297,11 @@ top_ai_used_for <- top_in_column(df_top_5,df_top_5$AIToolCurrently.Using,
 
 #Platforms
 top_platforms <- top_in_column(df_top_5,df_top_5$Platform,
-                               "Platform", top_num, "None")
+                               "Platform", 10, "None")
 
 #Web Frameworks
 top_web_frameworks <- top_in_column(df_top_5,df_top_5$WebFramework,
-                                    "WebFramework", top_num, "None")
+                                    "WebFramework", 10, "None")
 
 #Plotting
 #Language
@@ -461,7 +461,7 @@ ui <- dashboardPage(
                fluidPage(
                  plotOutput("langPlot", height = "70vh"),
                  fluidRow(
-                   column(12, sliderInput("numLang", "Top amount for Languages",
+                   column(12, sliderInput("numLang", "Top amount for languages",
                                           min = 2, max = 55, value = 10,
                                           width = "100%"))))),
       # Databases
@@ -469,16 +469,16 @@ ui <- dashboardPage(
                fluidPage(
                  plotOutput("databasesPlot", height = "70vh"),
                  fluidRow(
-                   column(12, sliderInput("numDb", "Top amount for Databases",
+                   column(12, sliderInput("numDb", "Top amount for databases",
                                           min = 2, max = 35, value = 10,
                                           width = "100%"))))),
       # AI Search
-      tabPanel("AI Search",
+      tabPanel("AI Search Engine",
                fluidPage(
                  plotOutput("aiSearchPlot", height = "70vh"),
                  fluidRow(
                    column(12, sliderInput("numAISearch",
-                                          "Top amount for AI Searches",
+                                          "Top amount for AI searches",
                                           min = 2, max = 15, value = 10,
                                           width = "100%"))))),
       # AI Used For
@@ -487,16 +487,16 @@ ui <- dashboardPage(
                  plotOutput("aiUsedForPlot", height = "70vh"),
                  fluidRow(
                    column(12, sliderInput("numAIUsedFor",
-                                          "Top amount for AI Used For",
+                                          "Top amount for AI used for",
                                           min = 2, max = 10, value = 10,
                                           width = "100%"))))),
       # Platforms
-      tabPanel("Platforms",
+      tabPanel("Cloud Platforms",
                fluidPage(
                  plotOutput("platformsPlot", height = "70vh"),
                  fluidRow(
                    column(12, sliderInput("numPlatform",
-                                          "Top amount for Platforms",
+                                          "Top amount for cloud platforms",
                                           min = 2, max = 25, value = 10,
                                           width = "100%"))))),
       # Web Frameworks
@@ -505,7 +505,7 @@ ui <- dashboardPage(
                  plotOutput("webFrameworksPlot", height = "70vh"),
                  fluidRow(
                    column(12, sliderInput("numWebFrameworks",
-                                          "Top amount for Web Frameworks",
+                                          "Top amount for web frameworks",
                                           min = 2, max = 40, value = 10,
                                           width = "100%"))))),
       # Industries
@@ -514,7 +514,7 @@ ui <- dashboardPage(
                  plotOutput("industriesPlot", height = "70vh"),
                  fluidRow(
                    column(12, sliderInput("numIndustries",
-                                          "Top amount for Industries", min = 2,
+                                          "Top amount for industries", min = 2,
                                           max = 20, value = 15,
                                           width = "100%"))))),
       # Job Roles
@@ -523,7 +523,7 @@ ui <- dashboardPage(
                  plotOutput("jobRolesPlot", height = "70vh"),
                  fluidRow(
                    column(12, sliderInput("numJobRoles",
-                                          "Top amount for Job Roles", min = 2,
+                                          "Top amount for job roles", min = 2,
                                           max = 45, value = 20,
                                           width = "100%"))))),
       # Job Roles
@@ -601,7 +601,7 @@ server <- function(input, output) {
   output$aiUsedForPlot <- renderPlot({
     plot_gg(top_ai_used_for()[[1]], top_ai_used_for()[[1]]$AIUsedFor,
             "AI Used For", "Frequency Of Usage",
-            paste("Top ", min(top_ai_used_for()[[3]], input$numAIUsedFor),
+            paste("Top", min(top_ai_used_for()[[3]], input$numAIUsedFor),
                   "Ways Graduates Use AI"), 100, top_ai_used_for()[[2]],
             top_ai_used_for()[[3]], input$axisSize, input$legendSize,
             input$percentageSize, input$roundNum)
@@ -609,15 +609,15 @@ server <- function(input, output) {
   
   # Platforms
   top_platforms <- reactive({
-    top_in_column(df_top_5, df_top_5$Platform, "Platform", input$numPlatform,
+    top_in_column(df_top_5, df_top_5$Platform, "Platforms", input$numPlatform,
                   "None", include_other = input$includeOther)
   })
   
   output$platformsPlot <- renderPlot({
     plot_gg(top_platforms()[[1]], top_platforms()[[1]]$Platform, "Platforms",
             "Frequency Of Usage",
-            paste("Top ", min(top_platforms()[[3]], input$numPlatform),
-                  "Platforms Used By Graduates"), 100, top_platforms()[[2]],
+            paste("Top", min(top_platforms()[[3]], input$numPlatform),
+                  "Cloud Platforms Used By Graduates"), 100, top_platforms()[[2]],
             top_platforms()[[3]], input$axisSize, input$legendSize,
             input$percentageSize, input$roundNum)
   })
@@ -712,7 +712,7 @@ rsconnect::setAccountInfo(name='mitchshinyprojects',
                           token='636365DC0A02F3E6129BFB37E3A6A568',
                           secret='Secret :)')
 
-rsconnect::deployApp("C:/PrivatePath/App", appName = "Survey Dashboard")
+rsconnect::deployApp("C:/PrivatePath/App", appName = "Survey_Dashboard")
 
 #question 3 (End)
 #------------------------------------------------------------------------------#
