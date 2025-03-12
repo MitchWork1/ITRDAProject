@@ -24,7 +24,7 @@ ui <- dashboardPage(
                fluidPage(
                  plotOutput("langPlot", height = "70vh"),
                  fluidRow(
-                   column(12, sliderInput("numLang", "Top amount for Languages",
+                   column(12, sliderInput("numLang", "Top amount for languages",
                                           min = 2, max = 55, value = 10,
                                           width = "100%"))))),
       # Databases
@@ -32,16 +32,16 @@ ui <- dashboardPage(
                fluidPage(
                  plotOutput("databasesPlot", height = "70vh"),
                  fluidRow(
-                   column(12, sliderInput("numDb", "Top amount for Databases",
+                   column(12, sliderInput("numDb", "Top amount for databases",
                                           min = 2, max = 35, value = 10,
                                           width = "100%"))))),
       # AI Search
-      tabPanel("AI Search",
+      tabPanel("AI Search Engine",
                fluidPage(
                  plotOutput("aiSearchPlot", height = "70vh"),
                  fluidRow(
                    column(12, sliderInput("numAISearch",
-                                          "Top amount for AI Searches",
+                                          "Top amount for AI searches",
                                           min = 2, max = 15, value = 10,
                                           width = "100%"))))),
       # AI Used For
@@ -50,16 +50,16 @@ ui <- dashboardPage(
                  plotOutput("aiUsedForPlot", height = "70vh"),
                  fluidRow(
                    column(12, sliderInput("numAIUsedFor",
-                                          "Top amount for AI Used For",
+                                          "Top amount for AI used for",
                                           min = 2, max = 10, value = 10,
                                           width = "100%"))))),
       # Platforms
-      tabPanel("Platforms",
+      tabPanel("Cloud Platforms",
                fluidPage(
                  plotOutput("platformsPlot", height = "70vh"),
                  fluidRow(
                    column(12, sliderInput("numPlatform",
-                                          "Top amount for Platforms",
+                                          "Top amount for cloud platforms",
                                           min = 2, max = 25, value = 10,
                                           width = "100%"))))),
       # Web Frameworks
@@ -68,7 +68,7 @@ ui <- dashboardPage(
                  plotOutput("webFrameworksPlot", height = "70vh"),
                  fluidRow(
                    column(12, sliderInput("numWebFrameworks",
-                                          "Top amount for Web Frameworks",
+                                          "Top amount for web frameworks",
                                           min = 2, max = 40, value = 10,
                                           width = "100%"))))),
       # Industries
@@ -77,7 +77,7 @@ ui <- dashboardPage(
                  plotOutput("industriesPlot", height = "70vh"),
                  fluidRow(
                    column(12, sliderInput("numIndustries",
-                                          "Top amount for Industries", min = 2,
+                                          "Top amount for industries", min = 2,
                                           max = 20, value = 15,
                                           width = "100%"))))),
       # Job Roles
@@ -86,7 +86,7 @@ ui <- dashboardPage(
                  plotOutput("jobRolesPlot", height = "70vh"),
                  fluidRow(
                    column(12, sliderInput("numJobRoles",
-                                          "Top amount for Job Roles", min = 2,
+                                          "Top amount for job roles", min = 2,
                                           max = 45, value = 20,
                                           width = "100%"))))),
       # Job Roles
